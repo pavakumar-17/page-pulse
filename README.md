@@ -1,25 +1,27 @@
-# 🚀 Page Pulse
+# Page Pulse
 
-Page Pulse is a Website Performance & SEO Analyzer built with React, Express, Axios, and Cheerio. It analyzes a website and provides useful SEO and performance metrics.
+Page Pulse is a website analysis tool that helps users check basic SEO and performance information for any website. It takes a URL as input, fetches the page, and displays useful details like the page title, response time, status code, meta description, word count, images, links, and more.
+
+This project was built using React for the frontend and Express.js for the backend.
 
 ## Features
 
 - Analyze any valid website URL
-- Website status code
-- Response time
-- Page title
-- Meta description
-- H1 tag count
-- Word count
-- Total images
-- Images missing alt text
-- Total links
-- Paragraph count
-- Canonical URL
-- Language detection
-- Loading indicator
-- Error handling
-- Responsive UI
+- Display HTTP status code
+- Measure response time
+- Extract page title
+- Show meta description
+- Count H1 tags
+- Calculate word count
+- Count images
+- Find images without alt attributes
+- Count links
+- Count paragraphs
+- Detect canonical URL
+- Detect page language
+- Loading indicator while fetching data
+- Error handling for invalid or unreachable URLs
+- Responsive user interface
 
 ## Tech Stack
 
@@ -31,74 +33,86 @@ Page Pulse is a Website Performance & SEO Analyzer built with React, Express, Ax
 ### Backend
 - Node.js
 - Express.js
-- Cheerio
 - Axios
+- Cheerio
 
 ## Project Structure
 
 ```
 page-pulse/
-│── client/
-│── server/
-│── README.md
-│── .gitignore
+├── client/
+├── server/
+├── .gitignore
+└── README.md
 ```
 
-## Installation
+## Getting Started
 
 ### Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/page-pulse.git
+git clone https://github.com/pavakumar-17/page-pulse.git
 ```
 
-### Install frontend dependencies
+### Navigate to the project
+
+```bash
+cd page-pulse
+```
+
+### Install dependencies
+
+Frontend:
 
 ```bash
 cd client
 npm install
 ```
 
-### Install backend dependencies
+Backend:
 
 ```bash
 cd ../server
 npm install
 ```
 
-## Run the Project
+## Run the project
 
-### Start Backend
+Start the backend server:
 
 ```bash
 cd server
 npm start
 ```
 
-Server runs on:
+The backend runs on:
 
 ```
 http://localhost:3001
 ```
 
-### Start Frontend
+Open another terminal and start the frontend:
 
 ```bash
 cd client
 npm run dev
 ```
 
-Frontend runs on:
+The frontend runs on:
 
 ```
 http://localhost:5173
 ```
 
-## API Endpoint
+## API
 
-### POST `/api/analyse`
+### Endpoint
 
-Request Body
+```
+POST /api/analyse
+```
+
+### Request Body
 
 ```json
 {
@@ -106,18 +120,41 @@ Request Body
 }
 ```
 
-## Screenshots
+## Output
 
-_Add screenshots here after running the application._
+The application displays:
+
+- HTTP Status Code
+- Response Time
+- Page Title
+- Meta Description
+- H1 Count
+- Word Count
+- Total Images
+- Images Missing Alt Text
+- Total Links
+- Paragraph Count
+- Canonical URL
+- Page Language
 
 ## Future Improvements
 
-- SEO Score
-- Lighthouse Integration
+Some features that can be added in the future:
+
+- SEO score
+- Google Lighthouse integration
 - PageSpeed Insights API
-- Export Report as PDF
-- Deployment with Vercel & Render
+- Export analysis as PDF
+- Analysis history
+- Dark mode
+- Deploy using Vercel and Render
 
 ## Author
 
 **Pavan Kumar Nadakuditi**
+
+GitHub: https://github.com/pavakumar-17
+
+## License
+
+This project is open for learning and personal portfolio purposes.
