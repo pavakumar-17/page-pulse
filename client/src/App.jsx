@@ -36,12 +36,16 @@ function App() {
       setLoading(true);
       setError("");
 
-      const res = await axios.post(
-        "http://localhost:3001/api/analyse",
-        {
-          url: website,
-        }
-      );
+      const API_URL =
+  import.meta.env.VITE_API_URL ||
+  "http://localhost:3001";
+
+const res = await axios.post(
+  `${API_URL}/api/analyse`,
+  {
+    url: website,
+  }
+);
 
       setReport(res.data.data);
     } catch (err) {
@@ -179,8 +183,16 @@ function App() {
         )}
 
         <div className="footer">
-          React • Express • Axios • Cheerio
-        </div>
+  <p>React • Express • Axios • Cheerio</p>
+
+  <a
+    href="https://digitalheroesco.com"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Built for Digital Heroes Training Task
+  </a>
+</div>
 
       </div>
     </div>
