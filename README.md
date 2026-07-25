@@ -1,8 +1,22 @@
 # Page Pulse
 
-Page Pulse is a website analysis tool that helps users check basic SEO and performance information for any website. It takes a URL as input, fetches the page, and displays useful details like the page title, response time, status code, meta description, word count, images, links, and more.
+Page Pulse is a website analysis tool that helps users evaluate the basic SEO and performance of any website. Users simply enter a website URL, and the application analyzes the page to display useful information such as response time, HTTP status, page title, meta description, word count, headings, images, links, and other SEO-related metrics.
 
-This project was built using React for the frontend and Express.js for the backend.
+The project is built with **React** for the frontend and **Express.js** for the backend.
+
+---
+
+## Live Demo
+
+**Frontend**
+
+https://page-pulse-eight-beta.vercel.app
+
+**Backend API**
+
+https://page-pulse-api-0n8q.onrender.com
+
+---
 
 ## Features
 
@@ -10,43 +24,67 @@ This project was built using React for the frontend and Express.js for the backe
 - Display HTTP status code
 - Measure response time
 - Extract page title
-- Show meta description
+- Display meta description
 - Count H1 tags
 - Calculate word count
-- Count images
-- Find images without alt attributes
-- Count links
+- Count total images
+- Detect images without alt attributes
+- Count hyperlinks
 - Count paragraphs
 - Detect canonical URL
 - Detect page language
-- Loading indicator while fetching data
-- Error handling for invalid or unreachable URLs
+- Loading indicator while analysis is running
+- Error handling for invalid or unreachable websites
 - Responsive user interface
+
+---
 
 ## Tech Stack
 
 ### Frontend
+
 - React
 - Axios
 - CSS
 
 ### Backend
+
 - Node.js
 - Express.js
 - Axios
 - Cheerio
 
+### Testing
+
+- Jest
+- Supertest
+
+---
+
 ## Project Structure
 
-```
+```text
 page-pulse/
+│
 ├── client/
+│   ├── src/
+│   └── package.json
+│
 ├── server/
-├── .gitignore
-└── README.md
+│   ├── routes/
+│   ├── services/
+│   ├── tests/
+│   ├── app.js
+│   ├── index.js
+│   └── package.json
+│
+├── README.md
+└── .gitignore
 ```
 
-## Getting Started
+---
+
+## Installation
 
 ### Clone the repository
 
@@ -54,55 +92,59 @@ page-pulse/
 git clone https://github.com/pavakumar-17/page-pulse.git
 ```
 
-### Navigate to the project
+### Navigate into the project
 
 ```bash
 cd page-pulse
 ```
 
-### Install dependencies
-
-Frontend:
+### Install frontend dependencies
 
 ```bash
 cd client
 npm install
 ```
 
-Backend:
+### Install backend dependencies
 
 ```bash
 cd ../server
 npm install
 ```
 
-## Run the project
+---
 
-Start the backend server:
+## Running the Project
+
+### Start the backend
 
 ```bash
 cd server
 npm start
 ```
 
-The backend runs on:
+Backend runs on:
 
 ```
 http://localhost:3001
 ```
 
-Open another terminal and start the frontend:
+### Start the frontend
+
+Open another terminal:
 
 ```bash
 cd client
 npm run dev
 ```
 
-The frontend runs on:
+Frontend runs on:
 
 ```
 http://localhost:5173
 ```
+
+---
 
 ## API
 
@@ -119,6 +161,31 @@ POST /api/analyse
   "url": "https://example.com"
 }
 ```
+
+### Successful Response
+
+```json
+{
+  "success": true,
+  "data": {
+    "url": "https://example.com",
+    "status": 200,
+    "responseTime": "245 ms",
+    "title": "Example Domain",
+    "metaDescription": "Not found",
+    "h1Count": 1,
+    "wordCount": 17,
+    "totalImages": 0,
+    "missingAlt": 0,
+    "totalLinks": 1,
+    "paragraphs": 2,
+    "canonical": "Not found",
+    "language": "en"
+  }
+}
+```
+
+---
 
 ## Output
 
@@ -137,24 +204,69 @@ The application displays:
 - Canonical URL
 - Page Language
 
+---
+
+## Testing
+
+The backend API is tested using **Jest** and **Supertest**.
+
+Run the tests:
+
+```bash
+cd server
+npm test
+```
+
+The current test suite covers:
+
+- Successful website analysis
+- Missing URL validation
+- Empty request body validation
+
+---
+
+## Design Decisions
+
+### 1. Separate Frontend and Backend
+
+The React frontend and Express backend are maintained as separate applications. This keeps responsibilities clear, makes deployment easier, and allows each part to be developed and tested independently.
+
+### 2. Client-side URL Validation
+
+The application validates the website URL before sending it to the backend. This provides immediate feedback to users, improves the overall experience, and reduces unnecessary API requests.
+
+### 3. HTML Parsing with Cheerio
+
+Cheerio was selected for parsing HTML because it is lightweight, efficient, and well suited for extracting SEO-related information such as titles, meta descriptions, headings, links, images, canonical URLs, and language attributes without requiring a headless browser.
+
+---
+
 ## Future Improvements
 
-Some features that can be added in the future:
+Some features that could be added in future versions include:
 
-- SEO score
+- Overall SEO score with detailed recommendations
 - Google Lighthouse integration
-- PageSpeed Insights API
-- Export analysis as PDF
-- Analysis history
+- Google PageSpeed Insights API integration
+- Export analysis reports as PDF
+- Save analysis history
+- Charts and visualizations for website metrics
+- Batch analysis of multiple websites
 - Dark mode
-- Deploy using Vercel and Render
+- User authentication and dashboard
+
+---
 
 ## Author
 
 **Pavan Kumar Nadakuditi**
 
-GitHub: https://github.com/pavakumar-17
+GitHub:
+
+https://github.com/pavakumar-17
+
+---
 
 ## License
 
-This project is open for learning and personal portfolio purposes.
+This project was created for learning purposes and as part of the **Digital Heroes Software Development Engineer Internship** technical assessment. It may also be used as a personal portfolio project.

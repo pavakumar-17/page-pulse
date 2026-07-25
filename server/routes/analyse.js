@@ -5,8 +5,7 @@ const analysePage = require("../services/pageAnalyzer");
 
 router.post("/analyse", async (req, res) => {
   try {
-    const { url } = req.body;
-
+const { url } = req.body || {};
     if (!url) {
       return res.status(400).json({
         success: false,
